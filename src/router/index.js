@@ -9,6 +9,8 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
   mode: "history",
   routes: [
+    // 깃허브 페이지
+    { path: "/polic-photographer", redirect: "/request" },
     { path: "/", redirect: "/request" },
     //   메인
     {
