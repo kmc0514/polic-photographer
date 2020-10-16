@@ -3,9 +3,9 @@
     <div class="tab tab_type04" id="myHeader">
       <ul>
         <li class="on"><router-link to="/request">촬영요청</router-link></li>
-        <li><a href="#" title="링크 이동">예약목록</a></li>
-        <li><a href="#" title="링크 이동">촬영상품</a></li>
-        <li><a href="#" title="링크 이동">포트폴리오</a></li>
+        <li><router-link to="/reserve">예약목록</router-link></li>
+        <li><router-link to="/product">촬영상품</router-link></li>
+        <li><router-link to="/portfolio">포트폴리오</router-link></li>
       </ul>
     </div>
   </div>

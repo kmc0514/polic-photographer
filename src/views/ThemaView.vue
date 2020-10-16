@@ -1,0 +1,79 @@
+<template>
+  <div>
+    <div id="wrap" class="wrap_type_normal footer_btn_ver">
+      <!-- 하단 버튼 추가시 footer_btn_ver 추가 -->
+      <div class="box mt10">
+        <div class="info_box">
+          <h2>어떤 촬영을 할 수 있나요?</h2>
+          <p>판매가능한 촬영종류를 모두 고르세요.</p>
+        </div>
+        <div class="select_list">
+          <h3>일반</h3>
+          <div class="select_item">
+            <div class="round_check text05">
+              <input type="checkbox" id="check01" name="round_check" />
+              <label for="check01">개인&#47;프로필</label>
+            </div>
+            <div class="round_check">
+              <input type="checkbox" id="check02" name="round_check" />
+              <label for="check02">가족사진</label>
+            </div>
+            <div class="round_check">
+              <input type="checkbox" id="check03" name="round_check" />
+              <label for="check03">커플사진</label>
+            </div>
+            <div class="round_check">
+              <input type="checkbox" id="check04" name="round_check" />
+              <label for="check04">우정사진</label>
+            </div>
+          </div>
+        </div>
+        <div class="select_list">
+          <h3>베이비/주니어</h3>
+          <div class="select_item">
+            <div class="round_check">
+              <input type="checkbox" id="check05" name="round_check02" />
+              <label for="check05">아기&#47;돌</label>
+            </div>
+            <div class="round_check">
+              <input type="checkbox" id="check06" name="round_check02" />
+              <label for="check06">주니어</label>
+            </div>
+          </div>
+        </div>
+        <div class="select_list">
+          <h3>행사</h3>
+          <div class="select_item">
+            <div class="round_check">
+              <input type="checkbox" id="check07" name="round_check03" />
+              <label for="check07">돌잔치</label>
+            </div>
+            <div class="round_check">
+              <input type="checkbox" id="check08" name="round_check03" />
+              <label for="check08">가족행사</label>
+            </div>
+            <div class="round_check text05">
+              <input type="checkbox" id="check09" name="round_check03" />
+              <label for="check09">무대&#47;콘서트</label>
+            </div>
+            <div class="round_check">
+              <input type="radio" id="check10" name="round_check03" />
+              <label for="check10">기업행사</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom_btn_wrap mb20">
+      <button type="button" class="bottom_btn_gray">다음으로</button
+      ><!-- 활성화 시 bottom_btn_pink -->
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style></style>
