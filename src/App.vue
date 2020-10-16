@@ -27,8 +27,8 @@ export default {
   },
   components: {
     HeaderBar,
-    HeaderTab,
     SideNavModal,
+    HeaderTab,
   },
 };
 </script>

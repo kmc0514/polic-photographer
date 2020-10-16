@@ -56,12 +56,13 @@
 
 <script>
 export default {
-  created() {},
+  mounted() {
+    document.querySelector("html").classList.add("white_bg");
+  },
+  beforeDestroy() {
+    document.querySelector("html").classList.remove("white_bg");
+  },
 };
 </script>
 
-<style scoped>
-body {
-  background-color: #fff !important;
-}
-</style>
+<style scoped></style>
