@@ -13,13 +13,13 @@
 
         <ul class="menu_list">
           <li>
-            <a hre="#" title="링크이동" @click="$emit('close')"
-              ><img src="../images/menu_ico01_on.png" alt="홈" class="on" /><img
+            <router-link to="/" @click.native="$emit('close')">
+              <img src="../images/menu_ico01_on.png" alt="홈" class="on" /><img
                 src="../images/menu_ico01_off.png"
                 alt="홈"
                 class="off"
-              />홈</a
-            >
+              />홈
+            </router-link>
           </li>
           <li>
             <router-link to="/trade" @click.native="$emit('close')">

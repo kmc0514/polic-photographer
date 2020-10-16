@@ -123,7 +123,7 @@ export const router = new VueRouter({
     },
     {
       name: "config",
-      path: "config",
+      path: "/config",
       component: ConfigView,
     },
   ],
