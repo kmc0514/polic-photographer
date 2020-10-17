@@ -6,7 +6,9 @@
         기본 설정만 완료해도 판매를 시작할 수 있어요.<br />지금 바로
         시작해볼까요?
       </p>
-      <router-link to="/setting" class="slim_btn">촬영 상품 만들기</router-link>
+      <router-link to="/setting/thema" class="slim_btn"
+        >촬영 상품 만들기</router-link
+      >
     </div>
     <div class="main_box">
       <h3>기본 설정 &#40;필수&#41;</h3>
