@@ -15,9 +15,7 @@
 
 <script>
 export default {
-  props: {
-    nextUrl: String,
-  },
+  props: ["nextUrl"],
 };
 </script>
 

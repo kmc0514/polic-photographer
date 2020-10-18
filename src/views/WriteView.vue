@@ -69,7 +69,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$emit("sentBtnData", "사진 업로드", "/portfolio");
+  },
+};
 </script>
 
 <style></style>

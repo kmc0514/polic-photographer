@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
+// 메인
 import RequestView from "../views/RequestView.vue";
 import ReserveView from "../views/ReserveView.vue";
 import ProductView from "../views/ProductView.vue";
 import PortfolioView from "../views/PortfolioView.vue";
-
+// 셋팅
 import SettingView from "../views/SettingView.vue";
 import ThemaView from "../views/ThemaView.vue";
 import PriceView from "../views/PriceView.vue";
@@ -16,7 +16,7 @@ import GuideView from "../views/GuideView.vue";
 import CautionView from "../views/CautionView.vue";
 import Preview from "../views/Preview.vue";
 import WriteView from "../views/WriteView.vue";
-
+// 사이드
 import TradeView from "@/views/sidemenu/TradeView.vue";
 import Review from "@/views/sidemenu/Review.vue";
 import IncomeView from "@/views/sidemenu/IncomeView.vue";
@@ -27,22 +27,25 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
   mode: "history",
   routes: [
-    { path: "/", redirect: "/request" },
     // 메인 라우터
+    { name: "main", path: "/", redirect: "/request" },
     {
       name: "request",
       path: "/request",
       component: RequestView,
+      meta: { type: "main" },
     },
     {
       name: "reserve",
       path: "/reserve",
       component: ReserveView,
+      meta: { type: "main" },
     },
     {
       name: "product",
       path: "/product",
       component: ProductView,
+      meta: { type: "main" },
     },
     {
       name: "preview",
@@ -53,6 +56,7 @@ export const router = new VueRouter({
       name: "portfolio",
       path: "/portfolio",
       component: PortfolioView,
+      meta: { type: "main" },
     },
     {
       name: "setting",
@@ -101,6 +105,13 @@ export const router = new VueRouter({
           name: "write",
           path: "write",
           component: WriteView,
+          meta: { title: "포트폴리오 등록" },
+        },
+        {
+          name: "profile",
+          path: "profile",
+          component: WriteView,
+          meta: { title: "프로필 변경" },
         },
       ],
     },
@@ -110,21 +121,25 @@ export const router = new VueRouter({
       name: "trade",
       path: "/trade",
       component: TradeView,
+      meta: { title: "촬영 관리" },
     },
     {
       name: "review",
       path: "/review",
       component: Review,
+      meta: { title: "후기 관리" },
     },
     {
       name: "income",
       path: "/income",
       component: IncomeView,
+      meta: { title: "정산 관리" },
     },
     {
       name: "config",
       path: "/config",
       component: ConfigView,
+      meta: { title: "설정" },
     },
   ],
 });

@@ -1,42 +1,47 @@
 <template>
-  <header id="header" class="bbn" v-bind:class="{ sticky_header: !isSetting }">
+  <div>
     <!--메인관련 헤더 sticky_header 생성 -->
     <template v-if="isSetting">
-      <div class="back" @click="$router.back()">
-        <a href="#" title="뒤로가기"
-          ><img src="@/images/back.png" alt="뒤로가기"
-        /></a>
-      </div>
-      <div class="right_text" @click="$router.push('/product')">
-        <a href="#" title="링크 이동">저장 후 나가기</a>
-      </div>
+      <setting-header>
+        {{ pageTitle }}
+      </setting-header>
     </template>
     <template v-else>
-      <div class="menu" @click="showMenu">
-        <a href="#" title="메뉴"><img src="../images/menu.png" alt="메뉴"/></a>
-      </div>
-      <h1>
-        <router-link to="/"
-          ><img src="../images/logo.png" alt="polic" class="logo"
-        /></router-link>
-      </h1>
-      <div class="alarm">
-        <a href="#" title="알림"><img src="../images/bell.png" alt="알림"/></a>
-      </div>
+      <main-header v-on:onMenu="onOffSideMenu">
+        {{ pageTitle }}
+      </main-header>
     </template>
-  </header>
+    <side-nav-modal v-show="showSideMenu" @close="showSideMenu = false">
+    </side-nav-modal>
+  </div>
 </template>
 
 <script>
+import MainHeader from "@/components/MainHeader.vue";
+import SettingHeader from "@/components/SettingHeader.vue";
+import SideNavModal from "@/components/SideNavModal.vue";
+
 export default {
+  data() {
+    return {
+      showSideMenu: false,
+      pageTitle: String,
+    };
+  },
   props: ["isSetting"],
   methods: {
-    showMenu() {
-      this.$emit("onMenu");
-      console.log("get");
+    onOffSideMenu() {
+      this.showSideMenu = !this.showSideMenu;
     },
   },
-  created() {},
+  components: {
+    MainHeader,
+    SettingHeader,
+    SideNavModal,
+  },
+  updated() {
+    this.pageTitle = this.$route.meta.title;
+  },
 };
 </script>
 

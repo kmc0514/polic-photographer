@@ -1,80 +1,47 @@
 <template>
-  <div id="wrap" class="wrap_type_tab">
-    <div class="fixed_btn">
-      <router-link to="/setting/write"
-        ><img src="@/images/request_ico.png" alt="요청서"
-      /></router-link>
-    </div>
-    <div class="grid">
-      <div class="grid-sizer"></div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="@/images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img01.png" alt="" />
-          </a>
-        </div>
+  <div>
+    <div id="wrap" class="wrap_type_tab">
+      <div class="fixed_btn">
+        <router-link to="/setting/write"
+          ><img src="@/images/request_ico.png" alt="요청서"
+        /></router-link>
       </div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="../images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img02.png" alt="" />
-          </a>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="../images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img03.png" alt="" />
-          </a>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="../images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img04.png" alt="" />
-          </a>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="../images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img05.png" alt="" />
-          </a>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="../images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img06.png" alt="" />
-          </a>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="grid_check_wrap">
-          <button type="button"><img src="../images/photo_del.png" /></button>
-          <a class="" href="#" data->
-            <img src="../images/sample_img07.png" alt="" />
-          </a>
+      <div class="grid">
+        <div class="grid-item" v-for="item in imgArr" :key="item">
+          <!-- block item markup -->
+          <div class="grid_check_wrap">
+            <button type="button"><img src="@/images/photo_del.png" /></button>
+            <a class="" href="#" @click="lookFull">
+              <img :src="require(`../images/sample_${item}.png`)" alt="" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
+    <!-- <full-photo v-show="fullSize" :off="fullSize"></full-photo> -->
   </div>
 </template>
 
 <script>
+// import FullPhoto from "@/components/FullPhoto.vue";
+import { whiteBg } from "@/mixins/whiteBg.js";
+
 export default {
-  mounted() {
-    document.querySelector("html").classList.add("white_bg");
+  data() {
+    return {
+      imgArr: ["img01", "img02", "img03", "img04", "img05", "img06", "img07"],
+      fullSize: Boolean,
+    };
   },
-  beforeDestroy() {
-    document.querySelector("html").classList.remove("white_bg");
+  methods: {
+    lookFull() {
+      this.fullSize = true;
+    },
   },
+  components: {
+    // FullPhoto,
+  },
+  mixins: [whiteBg],
 };
 </script>
 

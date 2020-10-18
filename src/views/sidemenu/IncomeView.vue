@@ -347,7 +347,11 @@
 </template>
 
 <script>
-export default {};
+import { whiteBg } from "@/mixins/whiteBg.js";
+
+export default {
+  mixins: [whiteBg],
+};
 </script>
 
 <style></style>

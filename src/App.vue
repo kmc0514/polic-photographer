@@ -1,12 +1,7 @@
 <template>
   <div>
-    <header-bar
-      v-on:onMenu="onOffSideMenu"
-      v-bind:isSetting="settingPage"
-    ></header-bar>
-    <side-nav-modal v-show="showSideMenu" @close="showSideMenu = false">
-    </side-nav-modal>
-    <header-tab v-if="!settingPage"></header-tab>
+    <header-bar v-bind:isSetting="settingPage"></header-bar>
+    <header-tab v-if="showMainTab"></header-tab>
     <router-view></router-view>
   </div>
 </template>
@@ -14,22 +9,26 @@
 <script>
 import HeaderBar from "./components/HeaderBar.vue";
 import HeaderTab from "./components/HeaderTab.vue";
-import SideNavModal from "./components/SideNavModal.vue";
 
 export default {
   data() {
     return {
-      showSideMenu: false,
+      showMainTab: Boolean,
       settingPage: Boolean,
     };
   },
   methods: {
-    onOffSideMenu() {
-      this.showSideMenu = !this.showSideMenu;
-    },
     onOffTab() {
-      const curUrl = this.$route.path;
-      if (curUrl.includes("/setting")) {
+      const curPageType = this.$route.meta.type;
+      if (curPageType === "main") {
+        this.showMainTab = true;
+      } else {
+        this.showMainTab = false;
+      }
+    },
+    settingHeader() {
+      const curPath = this.$route.path;
+      if (curPath.includes("/setting")) {
         this.settingPage = true;
       } else {
         this.settingPage = false;
@@ -38,7 +37,6 @@ export default {
   },
   components: {
     HeaderBar,
-    SideNavModal,
     HeaderTab,
   },
   mounted() {
@@ -46,6 +44,7 @@ export default {
   },
   updated() {
     this.onOffTab();
+    this.settingHeader();
   },
 };
 </script>

@@ -1,5 +1,9 @@
 <template>
   <div>
+    <tab-slot>
+      <li><a href="#" title="링크 이동">촬영종료</a></li>
+      <li class="on"><a href="#" title="링크 이동">거래완료</a></li>
+    </tab-slot>
     <div id="wrap" class="wrap_type_tab">
       <div class="space_wrap">
         <h3>전달하실 사진이 <span class="colPink">3건</span> 남았어요.</h3>
@@ -70,7 +74,14 @@
 </template>
 
 <script>
-export default {};
+import TabSlot from "@/components/TabSlot.vue";
+
+export default {
+  components: {
+    TabSlot,
+  },
+  mounted() {},
+};
 </script>
 
-<style></style>
+<style scoped></style>
