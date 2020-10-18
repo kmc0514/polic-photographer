@@ -1,9 +1,12 @@
 <template>
   <div>
-    <header-bar v-on:changeModal="onOffSideMenu"></header-bar>
+    <header-bar
+      v-on:onMenu="onOffSideMenu"
+      v-bind:isSetting="settingPage"
+    ></header-bar>
     <side-nav-modal v-show="showSideMenu" @close="showSideMenu = false">
     </side-nav-modal>
-    <header-tab v-if="showTab"></header-tab>
+    <header-tab v-if="!settingPage"></header-tab>
     <router-view></router-view>
   </div>
 </template>
@@ -17,7 +20,7 @@ export default {
   data() {
     return {
       showSideMenu: false,
-      showTab: true,
+      settingPage: Boolean,
     };
   },
   methods: {
@@ -27,9 +30,9 @@ export default {
     onOffTab() {
       const curUrl = this.$route.path;
       if (curUrl.includes("/setting")) {
-        this.showTab = false;
+        this.settingPage = true;
       } else {
-        this.showTab = true;
+        this.settingPage = false;
       }
     },
   },

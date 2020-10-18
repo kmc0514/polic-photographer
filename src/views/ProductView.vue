@@ -57,13 +57,10 @@
 </template>
 
 <script>
+import { whiteBg } from "@/mixins/whiteBg.js";
+
 export default {
-  mounted() {
-    document.querySelector("html").classList.add("white_bg");
-  },
-  beforeDestroy() {
-    document.querySelector("html").classList.remove("white_bg");
-  },
+  mixins: [whiteBg],
 };
 </script>
 

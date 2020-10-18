@@ -16,16 +16,15 @@
         <p class="text_num">0&#47;400</p>
       </div>
     </div>
-
-    <div class="bottom_btn_wrap mb20">
-      <button type="button" class="bottom_btn_gray">계속하기</button
-      ><!-- 활성화시 bottom_btn_pink으로 변경 -->
-    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$emit("sentBtnData", "계속하기", "compare");
+  },
+};
 </script>
 
 <style></style>

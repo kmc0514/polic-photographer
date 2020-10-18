@@ -37,16 +37,15 @@
         </ul>
       </div>
     </div>
-
-    <div class="bottom_btn_wrap mb20">
-      <button type="button" class="bottom_btn_pink">작성 완료하기</button
-      ><!-- 활성화시 bottom_btn_pink으로 변경 -->
-    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$emit("sentBtnData", "완료하기", "/product");
+  },
+};
 </script>
 
 <style></style>

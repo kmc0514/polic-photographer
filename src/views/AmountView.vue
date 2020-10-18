@@ -1,5 +1,6 @@
 <template>
   <div>
+    <progress-bar :curGauge="progress"></progress-bar>
     <div id="wrap" class="wrap_type_normal footer_btn_ver">
       <!-- 하단 버튼 추가시 footer_btn_ver 추가 -->
       <div class="box mt10">
@@ -37,7 +38,21 @@
 </template>
 
 <script>
-export default {};
+import ProgressBar from "@/components/ProgressBar.vue";
+
+export default {
+  data() {
+    return {
+      progress: "100%",
+    };
+  },
+  components: {
+    ProgressBar,
+  },
+  created() {
+    this.$emit("sentBtnData", "기본 설정 완료하기", "introduce");
+  },
+};
 </script>
 
 <style></style>

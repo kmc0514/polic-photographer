@@ -6,7 +6,7 @@
         <div class="info_box">
           <h2>보정 스타일 소개하기</h2>
           <p>
-            깉은 사진의 원본과 보정본을 비교하여 작가님의 보정 스타일을 보여줄
+            같은 사진의 원본과 보정본을 비교하여 작가님의 보정 스타일을 보여줄
             수 있어요.
           </p>
         </div>
@@ -44,7 +44,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$emit("sentBtnData", "계속하기", "guide");
+  },
+};
 </script>
 
 <style></style>

@@ -1,22 +1,33 @@
 <template>
   <div>
-    <router-view></router-view>
+    <router-view @sentBtnData="getBtnData"></router-view>
+    <complete-btn :nextUrl="nextUrl">
+      {{ btnName }}
+    </complete-btn>
   </div>
 </template>
 
 <script>
+import CompleteBtn from "@/components/completeBtn.vue";
+import { whiteBg } from "@/mixins/whiteBg.js";
+
 export default {
-  created() {
-    console.log("생성: ", this.$store.state.headerTabOn);
-    this.$store.state.headerTabOn = false;
+  data() {
+    return {
+      btnName: String,
+      nextUrl: String,
+    };
   },
-  mounted() {
-    console.log("탭 꺼짐: ", this.$store.state.headerTabOn);
+  methods: {
+    getBtnData(name, url) {
+      this.btnName = name;
+      this.nextUrl = url;
+    },
   },
-  beforeDestory() {
-    this.$store.state.headerTabOn = true;
-    console.log("켜짐: ", this.$store.state.headerTabOn);
+  components: {
+    CompleteBtn,
   },
+  mixins: [whiteBg],
 };
 </script>
 
