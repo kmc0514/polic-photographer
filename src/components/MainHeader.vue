@@ -12,7 +12,9 @@
       </slot>
     </h1>
     <div v-show="mainStyleHeader" class="alarm">
-      <a href="#" title="알림"><img src="../images/bell.png" alt="알림"/></a>
+      <router-link to="/setting/alarm">
+        <img src="../images/bell.png" alt="알림" />
+      </router-link>
     </div>
   </header>
 </template>

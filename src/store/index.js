@@ -4,5 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  state: {},
+  state: {
+    onSale: false,
+  },
+  getters: {
+    onSaleGetter(state) {
+      return state.onSale;
+    },
+  },
 });

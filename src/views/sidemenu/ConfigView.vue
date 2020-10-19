@@ -2,10 +2,12 @@
   <div id="wrap" class="wrap_type_normal">
     <ul class="menu_box">
       <li>
-        <a href="#" title="링크이동"
-          >내 정보 변경<span class="more"
-            ><img src="@/images/agree_more.png"/></span
-        ></a>
+        <router-link to="/setting/profile">
+          내 정보 변경
+          <span class="more">
+            <img src="@/images/agree_more.png" />
+          </span>
+        </router-link>
       </li>
       <li>
         <a href="#" title="링크이동"

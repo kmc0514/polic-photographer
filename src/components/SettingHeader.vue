@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="bbn">
+  <header id="header" :class="{ bbn: isProductSet }">
     <div class="back" @click="$router.back()">
       <a href="#" title="뒤로가기"
         ><img src="@/images/back.png" alt="뒤로가기"
@@ -30,10 +30,10 @@ export default {
   },
   methods: {
     productSetPage() {
-      if (this.$route.name === "write" || this.$route.name === "profile") {
-        this.isProductSet = false;
-      } else {
+      if (this.$route.meta.type === "product") {
         this.isProductSet = true;
+      } else {
+        this.isProductSet = false;
       }
     },
   },

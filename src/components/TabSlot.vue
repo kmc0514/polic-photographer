@@ -9,14 +9,7 @@
 </template>
 
 <script>
-export default {
-  // updated() {
-  //   document.querySelector("#header").classList.add("sticky_header", "bbn");
-  // },
-  // beforeDestroy() {
-  //   document.querySelector("#header").classList.remove("sticky_header", "bbn");
-  // },
-};
+export default {};
 </script>
 
-<style></style>
+<style scoped></style>

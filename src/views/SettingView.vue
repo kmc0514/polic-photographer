@@ -1,9 +1,11 @@
 <template>
   <div>
     <router-view @sentBtnData="getBtnData"></router-view>
-    <complete-btn :nextUrl="nextUrl">
-      {{ btnName }}
-    </complete-btn>
+    <template v-if="showBtn">
+      <complete-btn :nextUrl="nextUrl">
+        {{ btnName }}
+      </complete-btn>
+    </template>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ export default {
     return {
       btnName: String,
       nextUrl: String,
+      showBtn: Boolean,
     };
   },
   methods: {
@@ -23,11 +26,22 @@ export default {
       this.btnName = name;
       this.nextUrl = url;
     },
+    showButton() {
+      if (this.$route.name === "alarm") {
+        this.showBtn = false;
+      } else {
+        this.showBtn = true;
+      }
+      console.log("ok");
+    },
   },
   components: {
     CompleteBtn,
   },
   mixins: [whiteBg],
+  created() {
+    this.showButton();
+  },
 };
 </script>
 

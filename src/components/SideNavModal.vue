@@ -22,7 +22,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/trade" @click.native="$emit('close')">
+            <router-link to="/trade/progress" @click.native="$emit('close')">
               <img
                 src="../images/menu_ico02_on.png"
                 alt="촬영 관리"
@@ -49,7 +49,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="income" @click.native="$emit('close')">
+            <router-link to="/income" @click.native="$emit('close')">
               <img
                 src="../images/menu_ico04_on.png"
                 alt="정산 관리"
@@ -62,7 +62,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="config" @click.native="$emit('close')">
+            <router-link to="/config" @click.native="$emit('close')">
               <img
                 src="../images/menu_ico05_on.png"
                 alt="설정"

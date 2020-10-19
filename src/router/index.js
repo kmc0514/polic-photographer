@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // 메인
 import RequestView from "../views/RequestView.vue";
-import ReserveView from "../views/ReserveView.vue";
 import ProductView from "../views/ProductView.vue";
 import PortfolioView from "../views/PortfolioView.vue";
 // 셋팅
@@ -16,11 +15,15 @@ import GuideView from "../views/GuideView.vue";
 import CautionView from "../views/CautionView.vue";
 import Preview from "../views/Preview.vue";
 import WriteView from "../views/WriteView.vue";
+import AlarmView from "@/views/sidemenu/AlarmView.vue";
+import ProfileView from "@/views/ProfileView.vue";
 // 사이드
 import TradeView from "@/views/sidemenu/TradeView.vue";
 import Review from "@/views/sidemenu/Review.vue";
 import IncomeView from "@/views/sidemenu/IncomeView.vue";
 import ConfigView from "@/views/sidemenu/ConfigView.vue";
+
+import ListView from "@/views/ListView.vue";
 
 Vue.use(VueRouter);
 
@@ -38,7 +41,7 @@ export const router = new VueRouter({
     {
       name: "reserve",
       path: "/reserve",
-      component: ReserveView,
+      component: ListView,
       meta: { type: "main" },
     },
     {
@@ -68,37 +71,44 @@ export const router = new VueRouter({
           name: "thema",
           path: "thema",
           component: ThemaView,
+          meta: { type: "product" },
         },
         {
           name: "price",
           path: "price",
           component: PriceView,
+          meta: { type: "product" },
         },
         {
           name: "amount",
           path: "amount",
           component: AmountView,
+          meta: { type: "product" },
         },
         // 상품 디테일 설정
         {
           name: "introduce",
           path: "introduce",
           component: IntroduceView,
+          meta: { type: "product" },
         },
         {
           name: "compare",
           path: "compare",
           component: CompareView,
+          meta: { type: "product" },
         },
         {
           name: "guide",
           path: "guide",
           component: GuideView,
+          meta: { type: "product" },
         },
         {
           name: "caution",
           path: "caution",
           component: CautionView,
+          meta: { type: "product" },
         },
         // 사진 포트폴리오 등록
         {
@@ -110,8 +120,14 @@ export const router = new VueRouter({
         {
           name: "profile",
           path: "profile",
-          component: WriteView,
+          component: ProfileView,
           meta: { title: "프로필 변경" },
+        },
+        {
+          name: "alarm",
+          path: "alarm",
+          component: AlarmView,
+          meta: { title: "알람" },
         },
       ],
     },
@@ -122,6 +138,20 @@ export const router = new VueRouter({
       path: "/trade",
       component: TradeView,
       meta: { title: "촬영 관리" },
+      children: [
+        {
+          name: "progress",
+          path: "progress",
+          component: ListView,
+          meta: { title: "촬영 관리" },
+        },
+        {
+          name: "finish",
+          path: "finish",
+          component: ListView,
+          meta: { title: "촬영 관리" },
+        },
+      ],
     },
     {
       name: "review",
