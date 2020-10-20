@@ -6,20 +6,9 @@
           ><img src="@/images/request_ico.png" alt="요청서"
         /></router-link>
       </div>
-      <div
-        v-masonry
-        transition-duration="0.3s"
-        item-selector=".grid-item"
-        gutter="8"
-        class="grid"
-      >
-        <div
-          v-masonry-tile
-          class="grid-item"
-          v-for="(item, index) in imgArr"
-          :key="index"
-        >
-          <div class="grid_check_wrap">
+      <masonry :cols="2" :gutter="8" class="masonry_box">
+        <div v-for="(item, index) in imgArr" :key="index" class="masonry-item">
+          <div class="masonry-item-wrap">
             <button type="button"><img src="@/images/photo_del.png" /></button>
             <a class="" href="#" @click="lookFull">
               <progressive-img
@@ -29,7 +18,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </masonry>
     </div>
     <full-photo v-show="fullSize" @off="lookReqular"></full-photo>
   </div>
@@ -82,7 +71,29 @@ export default {
 </script>
 
 <style scoped>
-.grid_check_wrap button {
+.masonry_box {
+  padding: 12px 8px;
+}
+
+.masonry-item {
+  margin-bottom: 6px;
+}
+
+.masonry-item .progressive-image {
+  border-radius: 8px;
+}
+
+.masonry-item-wrap {
+  position: relative;
+}
+.masonry-item-wrap button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 24px;
+  padding: 0;
+  background: none;
+  border: none;
   z-index: 2;
 }
 </style>
