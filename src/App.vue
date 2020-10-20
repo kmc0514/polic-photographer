@@ -2,6 +2,7 @@
   <div>
     <header-bar v-bind:isSetting="settingPage"></header-bar>
     <header-tab v-if="showMainTab"></header-tab>
+
     <router-view></router-view>
   </div>
 </template>
@@ -49,4 +50,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+a:focus {
+  color: none;
+}
+</style>

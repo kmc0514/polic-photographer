@@ -4228,7 +4228,7 @@ span.review_btn {
   font-weight: 400;
 }
 .tab ul li a:active {
-  color: #3b3b3b;
+  color: none;
 }
 .tab ul li a:after {
   content: "";

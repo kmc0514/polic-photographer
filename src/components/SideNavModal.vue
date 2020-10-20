@@ -1,83 +1,73 @@
 <template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-close" @click="$emit('close')"></div>
-      <div id="menu">
-        <div class="menu_profile_box">
-          <div class="img_box">작가프로필</div>
-          <dl>
-            <dt>아르떼스튜디오</dt>
-            <dd>판매중</dd>
-          </dl>
-        </div>
+  <div class="modal-mask">
+    <div class="modal-close" @click="$emit('close')"></div>
 
-        <ul class="menu_list">
-          <li>
-            <router-link to="/" @click.native="$emit('close')">
-              <img src="../images/menu_ico01_on.png" alt="홈" class="on" /><img
-                src="../images/menu_ico01_off.png"
-                alt="홈"
-                class="off"
-              />홈
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/trade/progress" @click.native="$emit('close')">
-              <img
-                src="../images/menu_ico02_on.png"
-                alt="촬영 관리"
-                class="on"
-              />
-              <img
-                src="../images/menu_ico02_off.png"
-                alt="촬영 관리"
-                class="off"
-              />촬영 관리
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/review" @click.native="$emit('close')">
-              <img
-                src="../images/menu_ico03_on.png"
-                alt="리뷰 관리"
-                class="on"
-              /><img
-                src="../images/menu_ico03_off.png"
-                alt="리뷰 관리"
-                class="off"
-              />리뷰 관리
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/income" @click.native="$emit('close')">
-              <img
-                src="../images/menu_ico04_on.png"
-                alt="정산 관리"
-                class="on"
-              /><img
-                src="../images/menu_ico04_off.png"
-                alt="정산 관리"
-                class="off"
-              />정산 관리
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/config" @click.native="$emit('close')">
-              <img
-                src="../images/menu_ico05_on.png"
-                alt="설정"
-                class="on"
-              /><img
-                src="../images/menu_ico05_off.png"
-                alt="설정"
-                class="off"
-              />설정
-            </router-link>
-          </li>
-        </ul>
+    <div id="menu">
+      <div class="menu_profile_box">
+        <div class="img_box">작가프로필</div>
+        <dl>
+          <dt>아르떼스튜디오</dt>
+          <dd>판매중</dd>
+        </dl>
       </div>
+      <ul class="menu_list">
+        <li>
+          <router-link to="/" @click.native="$emit('close')">
+            <img src="../images/menu_ico01_on.png" alt="홈" class="on" /><img
+              src="../images/menu_ico01_off.png"
+              alt="홈"
+              class="off"
+            />홈
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/trade/progress" @click.native="$emit('close')">
+            <img src="../images/menu_ico02_on.png" alt="촬영 관리" class="on" />
+            <img
+              src="../images/menu_ico02_off.png"
+              alt="촬영 관리"
+              class="off"
+            />촬영 관리
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/review" @click.native="$emit('close')">
+            <img
+              src="../images/menu_ico03_on.png"
+              alt="리뷰 관리"
+              class="on"
+            /><img
+              src="../images/menu_ico03_off.png"
+              alt="리뷰 관리"
+              class="off"
+            />리뷰 관리
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/income" @click.native="$emit('close')">
+            <img
+              src="../images/menu_ico04_on.png"
+              alt="정산 관리"
+              class="on"
+            /><img
+              src="../images/menu_ico04_off.png"
+              alt="정산 관리"
+              class="off"
+            />정산 관리
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/config" @click.native="$emit('close')">
+            <img src="../images/menu_ico05_on.png" alt="설정" class="on" /><img
+              src="../images/menu_ico05_off.png"
+              alt="설정"
+              class="off"
+            />설정
+          </router-link>
+        </li>
+      </ul>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -92,7 +82,7 @@ export default {};
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: table;
   transition: opacity 0.3s ease;
 }
@@ -132,5 +122,18 @@ export default {};
 
 .modal-default-button {
   float: right;
+}
+
+/* TRANSITION */
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-10px);
+  opacity: 0;
 }
 </style>

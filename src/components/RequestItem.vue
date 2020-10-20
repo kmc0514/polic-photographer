@@ -40,16 +40,50 @@
         <template v-else>
           <a href="#" class="btn_style btn_type01 brn">위치 보기</a>
           <a href="#" class="btn_style btn_type01 brn">촬영 거절</a>
-          <a href="#" class="btn_style btn_type03">촬영 제안</a>
+          <a href="#" class="btn_style btn_type03" @click="onOffModal"
+            >촬영 제안</a
+          >
         </template>
       </div>
     </div>
+    <Modal v-if="showModal" :modalType="modalTypeData">
+      <h4 slot="h4">촬영제안 완료</h4>
+      <p slot="p">결제가 확인되면 예약을 확정 할 수 있습니다.</p>
+      <div slot="etc" class="normal_dl">
+        <dl>
+          <dt>촬영예정일</dt>
+          <dd>2020-06-14</dd>
+        </dl>
+        <dl>
+          <dt>예상판매금</dt>
+          <dd>150,000</dd>
+        </dl>
+      </div>
+      <a slot="button">확인</a>
+    </Modal>
   </div>
 </template>
 
 <script>
+import Modal from "@/components/common/Modal.vue";
+
 export default {
+  data() {
+    return {
+      showModal: false,
+      modalTypeData: String,
+    };
+  },
   props: ["paid"],
+  methods: {
+    onOffModal() {
+      this.showModal = !this.showModal;
+      this.modalTypeData = "success";
+    },
+  },
+  components: {
+    Modal,
+  },
 };
 </script>
 
