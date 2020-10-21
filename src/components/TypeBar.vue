@@ -1,7 +1,13 @@
 <template>
   <div>
     <div class="main_state" v-bind:class="{ none_start: !onSaleGetter }">
-      <p>버튼을 눌러 판매를 시작하세요.</p>
+      <p>
+        {{
+          onSaleGetter
+            ? "촬영 요청을 받고 있어요."
+            : "버튼을 눌러 촬영 요청을 받으세요."
+        }}
+      </p>
       <div class="check-wrapper">
         <input
           type="checkbox"

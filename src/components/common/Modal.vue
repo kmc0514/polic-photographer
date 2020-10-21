@@ -16,10 +16,10 @@
             <slot name="etc">
               <!-- 기타 -->
             </slot>
-            <div class="popup_btn_wrap" :class="btnType">
-              <slot name="button"></slot>
-              <slot name="button2"></slot>
-            </div>
+          </div>
+          <div class="popup_btn_wrap" :class="btnType" @click="closeModal">
+            <slot name="button"></slot>
+            <slot name="button2"></slot>
           </div>
         </div>
       </div>
@@ -59,12 +59,16 @@ export default {
           this.iconType = "cancel";
           break;
         case "success":
-          this.btnType = "type02";
+          this.btnType = "type01";
           this.iconType = "complete";
           break;
         default:
           this.btnType = "type01";
       }
+    },
+    closeModal() {
+      console.log("close");
+      this.$emit("close");
     },
   },
   created() {

@@ -24,7 +24,7 @@
 
 /*login*/
 .login_flex {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -4210,7 +4210,7 @@ span.review_btn {
 /*tab*/
 .tab {
   width: 100%;
-  z-index: 5;
+  z-index: 999;
 }
 .tab ul {
   overflow: hidden;

@@ -1,8 +1,10 @@
 <template>
   <div>
-    <header-bar v-bind:isSetting="settingPage"></header-bar>
+    <header-bar
+      v-if="headerVisible"
+      v-bind:isSetting="settingPage"
+    ></header-bar>
     <header-tab v-if="showMainTab"></header-tab>
-
     <router-view></router-view>
   </div>
 </template>
@@ -10,15 +12,22 @@
 <script>
 import HeaderBar from "./components/HeaderBar.vue";
 import HeaderTab from "./components/HeaderTab.vue";
+import { headers, params } from "./api/cert.js";
 
 export default {
   data() {
     return {
       showMainTab: Boolean,
       settingPage: Boolean,
+      headerVisible: Boolean,
     };
   },
   methods: {
+    loadLoginPage() {
+      if (this.$store.state.logIn === false) {
+        this.$router.push("login");
+      }
+    },
     onOffTab() {
       const curPageType = this.$route.meta.type;
       if (curPageType === "main") {
@@ -29,6 +38,11 @@ export default {
     },
     settingHeader() {
       const curPath = this.$route.path;
+      if (curPath.includes("/login")) {
+        this.headerVisible = false;
+      } else {
+        this.headerVisible = true;
+      }
       if (curPath.includes("/setting")) {
         this.settingPage = true;
       } else {
@@ -46,6 +60,10 @@ export default {
   updated() {
     this.onOffTab();
     this.settingHeader();
+  },
+  created() {
+    this.$store.dispatch("FETCH_REQUEST_LIST", { headers, params });
+    this.loadLoginPage();
   },
 };
 </script>

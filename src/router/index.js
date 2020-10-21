@@ -30,6 +30,11 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
   mode: "history",
   routes: [
+    {
+      name: "login",
+      path: "/login",
+      component: () => import("@/views/LoginPage.vue"),
+    },
     // 메인 라우터
     { name: "main", path: "/", redirect: "/request" },
     {
