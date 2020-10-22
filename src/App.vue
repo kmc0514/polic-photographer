@@ -12,7 +12,6 @@
 <script>
 import HeaderBar from "./components/HeaderBar.vue";
 import HeaderTab from "./components/HeaderTab.vue";
-import { headers, params } from "./api/cert.js";
 
 export default {
   data() {
@@ -62,7 +61,6 @@ export default {
     this.settingHeader();
   },
   created() {
-    this.$store.dispatch("FETCH_REQUEST_LIST", { headers, params });
     this.loadLoginPage();
   },
 };

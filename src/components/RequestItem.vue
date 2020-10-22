@@ -99,9 +99,6 @@ export default {
   components: {
     Modal,
   },
-  created() {
-    console.log(this.req);
-  },
 };
 </script>
 

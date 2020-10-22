@@ -1,21 +1,26 @@
 <template>
-  <div class="login_flex">
+  <div class="login_box">
     <div class="login_wrap">
-      <div>
-        <h1>폴릭 포토그래퍼 시작하기</h1>
+      <div class="img_wrap">
+        <img src="@/images/logo_horizon.png" />
       </div>
-      <form @submit.prevent="submitForm">
-        <div class="input_wrap">
-          <label for="e-mail">E-MAIL</label>
+
+      <h1>
+        안녕하세요 작가님,<br />
+        촬영을 시작해볼까요?
+      </h1>
+      <form @submit.prevent="loginCheck">
+        <div class="login_input_wrap">
+          <label for="e-mail">이메일</label>
           <input
             id="e-mail"
             type="email"
-            placeholder="이메일을 입력하세요."
+            placeholder="abcd@email.com"
             v-model="email"
           />
         </div>
-        <div class="input_wrap">
-          <label for="password">PASSWORD</label>
+        <div class="login_input_wrap">
+          <label for="password">비밀번호</label>
           <input
             id="password"
             type="password"
@@ -23,8 +28,8 @@
             v-model="password"
           />
         </div>
-        <div class="login_btn_box">
-          <button class="button_pink_type01" @click="loginCheck">
+        <div class="login_btn_wrap">
+          <button class="button_login" type="submit">
             로그인
           </button>
           <p>{{ errMsg }}</p>
@@ -35,6 +40,8 @@
 </template>
 
 <script>
+import { whiteBg } from "../mixins/whiteBg.js";
+
 export default {
   data() {
     return {
@@ -46,45 +53,74 @@ export default {
   methods: {
     loginCheck() {
       this.$store.state.logIn = true;
+      this.$store.dispatch("FETCH_REQUEST_LIST");
       this.$router.push("request");
     },
   },
+  mixins: [whiteBg],
 };
 </script>
 
 <style scoped>
-.login_flex {
-  min-width: 100%;
-  min-height: 100vh;
-  background: #fff;
-  padding-top: 96px;
+.login_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+}
+
+.login_wrap .img_wrap {
+  width: 100%;
+}
+
+.login_wrap img {
+  height: 24px;
+  width: auto;
+  padding: 16px 0;
 }
 
 .login_wrap h1 {
-  font-size: 21px;
   width: 100%;
-  margin: 0px;
   font-weight: 600;
-  margin-bottom: 64px;
-}
-
-.login_wrap .input_wrap {
-  margin-bottom: 6px;
-}
-
-.login_btn_box {
+  font-size: 21px;
+  margin: 32px 0 64px 0;
   text-align: center;
-  margin-top: 12px;
 }
 
-.button_pink_type01 {
-  width: 95%;
-  padding: 8px 0px;
-  background-color: #ff635f;
-  color: white;
+.login_wrap form {
+  width: 100%;
+}
+
+.login_input_wrap {
+  margin-bottom: 16px;
+}
+
+.login_input_wrap label {
+  color: #ff635f;
+  margin-left: 8px;
+}
+
+.login_input_wrap input {
+  border: 0;
+  border-bottom: 2px solid #ff635f;
+  padding: 12px;
+}
+
+.login_input_wrap input:focus {
+  outline: none;
 }
 
 .login_btn_box p {
   color: #ff635f;
+}
+
+.button_login {
+  width: 100%;
+  background-color: #ff635f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
 }
 </style>
