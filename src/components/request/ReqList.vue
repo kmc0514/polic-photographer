@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import TypeBar from "../components/TypeBar.vue";
+import TypeBar from "@/components/TypeBar.vue";
 import RequestItem from "@/components/RequestItem.vue";
 import Blank from "@/components/common/Blank.vue";
 import { mapGetters } from "vuex";

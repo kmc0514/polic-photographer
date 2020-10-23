@@ -2,17 +2,19 @@
   <div>
     <div id="wrap" class="wrap_type_tab">
       <div class="fixed_btn">
-        <router-link to="/setting/write"
-          ><img src="@/images/request_ico.png" alt="요청서"
+        <router-link to="/register/upload"
+          ><img src="@/assets/images/request_ico.png" alt="요청서"
         /></router-link>
       </div>
       <masonry :cols="2" :gutter="8" class="masonry_box">
         <div v-for="(item, index) in imgArr" :key="index" class="masonry-item">
           <div class="masonry-item-wrap">
-            <button type="button"><img src="@/images/photo_del.png" /></button>
+            <button type="button">
+              <img src="@/assets/images/photo_del.png" />
+            </button>
             <a class="" href="#" @click="lookFull">
               <progressive-img
-                :src="require(`../images/sample_${item}.png`)"
+                :src="require(`@/assets/images/sample_${item}.png`)"
                 alt=""
               />
             </a>

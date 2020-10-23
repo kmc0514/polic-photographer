@@ -3,7 +3,7 @@
     <div class="request_list">
       <div class="request_box">
         <div class="left_ico">
-          <img src="@/images/bell_white.png" class="bell_ico" />
+          <img src="@/assets/images/bell_white.png" class="bell_ico" />
         </div>
         <div class="view_content">
           <div class="title">

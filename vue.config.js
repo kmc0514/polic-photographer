@@ -5,6 +5,7 @@ module.exports = {
     resolve: {
       alias: {
         "@": path.join(__dirname, "src/"),
+        "@C": path.join(__dirname, "src/components/"),
       },
     },
   },

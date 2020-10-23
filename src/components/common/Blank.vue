@@ -1,6 +1,6 @@
 <template>
   <div class="blank_wrap">
-    <img src="@/images/shooting_none.png" alt="" />
+    <img src="@/assets/images/shooting_none.png" alt="" />
     <h3>아직 촬영요청이 없어요.</h3>
   </div>
 </template>

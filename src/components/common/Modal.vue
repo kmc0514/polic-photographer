@@ -5,7 +5,7 @@
         <div class="popup_box">
           <div class="popup_contents">
             <div class="pop_ico">
-              <img :src="require(`@/images/pop_ico_${iconType}.png`)" />
+              <img :src="require(`@/assets/images/pop_ico_${iconType}.png`)" />
             </div>
             <slot name="h4">
               <!-- 팝업 타이틀 입력 -->

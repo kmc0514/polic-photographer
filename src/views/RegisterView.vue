@@ -1,5 +1,6 @@
 <template>
   <div>
+    <sub-header>{{ $route.meta.title }}</sub-header>
     <router-view @sentBtnData="getBtnData"></router-view>
     <template v-if="showBtn">
       <complete-btn :nextUrl="nextUrl">
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import SubHeader from "@C/SubHeader.vue";
 import CompleteBtn from "@/components/completeBtn.vue";
 import { whiteBg } from "@/mixins/whiteBg.js";
 
@@ -36,6 +38,7 @@ export default {
     },
   },
   components: {
+    SubHeader,
     CompleteBtn,
   },
   mixins: [whiteBg],

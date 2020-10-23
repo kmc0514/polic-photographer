@@ -2,44 +2,47 @@
   <div id="wrap" class="wrap_type_normal">
     <ul class="menu_box">
       <li>
-        <router-link to="/setting/profile">
+        <router-link to="/register/profile">
           내 정보 변경
           <span class="more">
-            <img src="@/images/agree_more.png" />
+            <img src="@/assets/images/agree_more.png" />
           </span>
         </router-link>
       </li>
       <li>
         <a href="#" title="링크이동"
           >자주 묻는 질문<span class="more"
-            ><img src="@/images/agree_more.png"/></span
+            ><img src="@/assets/images/agree_more.png"/></span
         ></a>
       </li>
       <li>
         <a href="#" title="링크이동"
-          >버그신고<span class="more"><img src="@/images/agree_more.png"/></span
+          >버그신고<span class="more"
+            ><img src="@/assets/images/agree_more.png"/></span
         ></a>
       </li>
       <li>
         <a href="#" title="링크이동"
-          >고객센터<span class="more"><img src="@/images/agree_more.png"/></span
+          >고객센터<span class="more"
+            ><img src="@/assets/images/agree_more.png"/></span
         ></a>
       </li>
       <li>
         <a href="#" title="링크이동"
           >개인정보처리방침<span class="more"
-            ><img src="@/images/agree_more.png"/></span
+            ><img src="@/assets/images/agree_more.png"/></span
         ></a>
       </li>
       <li>
         <a href="#" title="링크이동"
-          >이용약관<span class="more"><img src="@/images/agree_more.png"/></span
+          >이용약관<span class="more"
+            ><img src="@/assets/images/agree_more.png"/></span
         ></a>
       </li>
       <li>
         <a href="#" title="링크이동"
           >포토그래퍼 안내<span class="more"
-            ><img src="@/images/agree_more.png"/></span
+            ><img src="@/assets/images/agree_more.png"/></span
         ></a>
       </li>
     </ul>

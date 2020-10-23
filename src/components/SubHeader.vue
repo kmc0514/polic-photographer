@@ -2,7 +2,7 @@
   <header id="header" :class="{ bbn: isProductSet }">
     <div class="back" @click="$router.back()">
       <a href="#" title="뒤로가기"
-        ><img src="@/images/back.png" alt="뒤로가기"
+        ><img src="@/assets/images/back.png" alt="뒤로가기"
       /></a>
     </div>
     <h1 v-if="!isProductSet">
@@ -13,7 +13,7 @@
     <div
       v-show="isProductSet"
       class="right_text"
-      @click="$router.push('/product')"
+      @click="$router.push('/main/product')"
     >
       <a href="#" title="링크 이동">저장 후 나가기</a>
     </div>

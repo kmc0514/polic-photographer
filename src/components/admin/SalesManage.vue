@@ -72,14 +72,14 @@
           <div class="calendar_box">
             <input type="text" value="2020.06.15" />
             <button type="button">
-              <img src="@/images/ico_calendar.png" />
+              <img src="@/assets/images/ico_calendar.png" />
             </button>
           </div>
           <p class="calendar_line">~</p>
           <div class="calendar_box">
             <input type="text" value="2020.06.15" />
             <button type="button">
-              <img src="@/images/ico_calendar.png" />
+              <img src="@/assets/images/ico_calendar.png" />
             </button>
           </div>
         </div>
@@ -347,11 +347,7 @@
 </template>
 
 <script>
-import { whiteBg } from "@/mixins/whiteBg.js";
-
-export default {
-  mixins: [whiteBg],
-};
+export default {};
 </script>
 
 <style></style>

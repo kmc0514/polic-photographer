@@ -11,7 +11,7 @@
       <div class="simple_box">
         <a href="#" class="address_text"
           ><input type="text" placeholder="위치를 추가하세요."/><img
-            src="../images/agree_more.png"
+            src="@/assets/images/agree_more.png"
             class="right_more"
         /></a>
       </div>
@@ -71,7 +71,7 @@
 <script>
 export default {
   created() {
-    this.$emit("sentBtnData", "사진 업로드", "/portfolio");
+    this.$emit("sentBtnData", "사진 업로드", "/main/portfolio");
   },
 };
 </script>

@@ -1,180 +1,174 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// 메인
-import RequestView from "../views/RequestView.vue";
-import ProductView from "../views/ProductView.vue";
-import PortfolioView from "../views/PortfolioView.vue";
-// 셋팅
-import SettingView from "../views/SettingView.vue";
-import ThemaView from "../views/ThemaView.vue";
-import PriceView from "../views/PriceView.vue";
-import AmountView from "../views/AmountView.vue";
-import IntroduceView from "../views/IntroduceView.vue";
-import CompareView from "../views/CompareView.vue";
-import GuideView from "../views/GuideView.vue";
-import CautionView from "../views/CautionView.vue";
-import Preview from "../views/Preview.vue";
-import WriteView from "../views/WriteView.vue";
-import AlarmView from "@/views/sidemenu/AlarmView.vue";
-import ProfileView from "@/views/ProfileView.vue";
-// 사이드
-import TradeView from "@/views/sidemenu/TradeView.vue";
-import Review from "@/views/sidemenu/Review.vue";
-import IncomeView from "@/views/sidemenu/IncomeView.vue";
-import ConfigView from "@/views/sidemenu/ConfigView.vue";
-
-import ListView from "@/views/ListView.vue";
 
 Vue.use(VueRouter);
+
+// [URL 축약형]
+// @ : ~/src
+// @C : ~/components
 
 export const router = new VueRouter({
   mode: "history",
   routes: [
+    { name: "main", path: "/", redirect: "/login" },
     {
       name: "login",
       path: "/login",
-      component: () => import("@/views/LoginPage.vue"),
+      component: () => import("@C/login/LoginPage.vue"),
     },
-    // 메인 라우터
-    { name: "main", path: "/", redirect: "/request" },
+
+    // 메인 페이지
     {
-      name: "request",
-      path: "/request",
-      component: RequestView,
-      meta: { type: "main" },
+      path: "/main",
+      component: () => import("@/views/MainView.vue"),
+      children: [
+        {
+          name: "request",
+          path: "request",
+          component: () => import("@C/request/ReqList.vue"),
+        },
+        {
+          name: "reserve",
+          path: "reserve",
+          component: () => import("@C/reservation/RevList.vue"),
+        },
+        {
+          name: "product",
+          path: "product",
+          component: () => import("@C/product/ProductHome.vue"),
+        },
+        {
+          name: "portfolio",
+          path: "portfolio",
+          component: () => import("@C/portfolio/PortList.vue"),
+        },
+      ],
     },
-    {
-      name: "reserve",
-      path: "/reserve",
-      component: ListView,
-      meta: { type: "main" },
-    },
-    {
-      name: "product",
-      path: "/product",
-      component: ProductView,
-      meta: { type: "main" },
-    },
+
+    // 상품 미리보기 페이지
     {
       name: "preview",
       path: "/preview",
-      component: Preview,
+      component: () => import("@C/product/PreviewPage.vue"),
     },
+
+    // 등록 관련 페이지 (상품, 사진, 프로필)
     {
-      name: "portfolio",
-      path: "/portfolio",
-      component: PortfolioView,
-      meta: { type: "main" },
-    },
-    {
-      name: "setting",
-      path: "/setting",
-      component: SettingView,
+      name: "register",
+      path: "/register",
+      component: () => import("@/views/RegisterView.vue"),
       children: [
         // 상품 필수 설정
         {
           name: "thema",
           path: "thema",
-          component: ThemaView,
+          component: () => import("@C/product/SetThema.vue"),
           meta: { type: "product" },
         },
         {
           name: "price",
           path: "price",
-          component: PriceView,
+          component: () => import("@C/product/SetPrice.vue"),
           meta: { type: "product" },
         },
         {
           name: "amount",
           path: "amount",
-          component: AmountView,
+          component: () => import("@C/product/SetAmount.vue"),
           meta: { type: "product" },
         },
         // 상품 디테일 설정
         {
           name: "introduce",
           path: "introduce",
-          component: IntroduceView,
+          component: () => import("@C/product/SetIntro.vue"),
           meta: { type: "product" },
         },
         {
           name: "compare",
           path: "compare",
-          component: CompareView,
+          component: () => import("@C/product/SetCompare.vue"),
           meta: { type: "product" },
         },
         {
           name: "guide",
           path: "guide",
-          component: GuideView,
+          component: () => import("@C/product/SetGuide.vue"),
           meta: { type: "product" },
         },
         {
           name: "caution",
           path: "caution",
-          component: CautionView,
+          component: () => import("@C/product/SetCaution.vue"),
           meta: { type: "product" },
         },
         // 사진 포트폴리오 등록
         {
-          name: "write",
-          path: "write",
-          component: WriteView,
+          name: "upload",
+          path: "upload",
+          component: () => import("@C/portfolio/PortUpload.vue"),
           meta: { title: "포트폴리오 등록" },
         },
         {
           name: "profile",
           path: "profile",
-          component: ProfileView,
+          component: () => import("@C/admin/EditProfile.vue"),
           meta: { title: "프로필 변경" },
         },
         {
           name: "alarm",
           path: "alarm",
-          component: AlarmView,
+          component: () => import("@C/admin/AlarmList.vue"),
           meta: { title: "알람" },
         },
       ],
     },
 
-    // 사이드 라우터
+    // 사이드메뉴 : 관리 페이지
     {
-      name: "trade",
-      path: "/trade",
-      component: TradeView,
-      meta: { title: "촬영 관리" },
+      name: "admin",
+      path: "/admin",
+      component: () => import("@/views/AdminView.vue"),
       children: [
         {
-          name: "progress",
-          path: "progress",
-          component: ListView,
+          name: "trade",
+          path: "trade",
+          component: () => import("@C/admin/trade/TradeList.vue"),
           meta: { title: "촬영 관리" },
+          children: [
+            {
+              name: "progress",
+              path: "progress",
+              component: () => import("@C/reservation/RevList.vue"),
+              meta: { title: "촬영 관리" },
+            },
+            {
+              name: "finish",
+              path: "finish",
+              component: () => import("@C/reservation/RevList.vue"),
+              meta: { title: "촬영 관리" },
+            },
+          ],
         },
         {
-          name: "finish",
-          path: "finish",
-          component: ListView,
-          meta: { title: "촬영 관리" },
+          name: "review",
+          path: "review",
+          component: () => import("@C/admin/ReviewList.vue"),
+          meta: { title: "후기 관리" },
+        },
+        {
+          name: "sales",
+          path: "sales",
+          component: () => import("@C/admin/SalesManage.vue"),
+          meta: { title: "정산 관리" },
+        },
+        {
+          name: "setting",
+          path: "setting",
+          component: () => import("@C/admin/SettingList.vue"),
+          meta: { title: "설정" },
         },
       ],
-    },
-    {
-      name: "review",
-      path: "/review",
-      component: Review,
-      meta: { title: "후기 관리" },
-    },
-    {
-      name: "income",
-      path: "/income",
-      component: IncomeView,
-      meta: { title: "정산 관리" },
-    },
-    {
-      name: "config",
-      path: "/config",
-      component: ConfigView,
-      meta: { title: "설정" },
     },
   ],
 });

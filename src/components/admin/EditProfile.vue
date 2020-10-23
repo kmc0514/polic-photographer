@@ -5,7 +5,7 @@
       <div class="photo_grapher_info">
         <div class="img_box"></div>
         <a href="#"
-          ><img src="@/images/my_photo_edit.png" alt="프로필 변경"
+          ><img src="@/assets/images/my_photo_edit.png" alt="프로필 변경"
         /></a>
       </div>
     </div>

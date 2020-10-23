@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import ProgressBar from "@/components/ProgressBar.vue";
+import ProgressBar from "@C/common/ProgressBar.vue";
 
 export default {
   data() {

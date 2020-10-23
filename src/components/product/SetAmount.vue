@@ -10,7 +10,7 @@
           <p>
             <a href="#" class="question_txt"
               >폴릭 요금 체계 알아보기
-              <img src="../images/question_mark.png" alt="알아보기"
+              <img src="@/assets/images/question_mark.png" alt="알아보기"
             /></a>
           </p>
         </div>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import ProgressBar from "@/components/ProgressBar.vue";
+import ProgressBar from "@C/common/ProgressBar.vue";
 
 export default {
   data() {

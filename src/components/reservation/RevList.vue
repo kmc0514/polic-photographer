@@ -5,10 +5,10 @@
         <h3>{{ deal.date }}</h3>
         <div class="deal_list_type02">
           <ul>
-            <list-item
+            <rev-item
               v-for="(item, index) in deal.item"
               :key="index"
-            ></list-item>
+            ></rev-item>
           </ul>
         </div>
       </li>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ListItem from "@/components/ListItem.vue";
+import RevItem from "./RevItem.vue";
 
 export default {
   data() {
@@ -43,7 +43,7 @@ export default {
     };
   },
   components: {
-    ListItem,
+    RevItem,
   },
 };
 </script>

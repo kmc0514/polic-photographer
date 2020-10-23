@@ -3,20 +3,20 @@
     <div class="control_btn_wrap">
       <div class="pop_close" @click="fullOff">
         <a href="#" title="닫기"
-          ><img src="@/images/pop_close.png" alt="닫기"
+          ><img src="@/assets/images/pop_close.png" alt="닫기"
         /></a>
       </div>
     </div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="@/images/sample_img01.png" alt="후기 사진" />
+          <img src="@/assets/images/sample_img01.png" alt="후기 사진" />
         </div>
         <div class="swiper-slide">
-          <img src="@/images/sample_img02.png" alt="후기 사진" />
+          <img src="@/assets/images/sample_img02.png" alt="후기 사진" />
         </div>
         <div class="swiper-slide">
-          <img src="@/images/sample_img03.png" alt="후기 사진" />
+          <img src="@/assets/images/sample_img03.png" alt="후기 사진" />
         </div>
       </div>
       <!-- Add Pagination -->

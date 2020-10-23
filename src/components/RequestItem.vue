@@ -2,7 +2,7 @@
   <div class="request_box">
     <template>
       <div class="left_ico" :class="{ gray_bg: !paid }">
-        <img src="../images/request.png" class="arrow_ico" />
+        <img src="@/assets/images/request.png" class="arrow_ico" />
       </div>
     </template>
     <div class="view_content">

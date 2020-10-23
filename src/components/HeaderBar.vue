@@ -17,9 +17,10 @@
 </template>
 
 <script>
-import MainHeader from "@/components/MainHeader.vue";
+import MainHeader from "@/components/MenuHeader.vue";
 import SettingHeader from "@/components/SettingHeader.vue";
 import SideNavModal from "@/components/SideNavModal.vue";
+import { bus } from "@/utils/bus.js";
 
 export default {
   data() {
@@ -41,6 +42,9 @@ export default {
   },
   updated() {
     this.pageTitle = this.$route.meta.title;
+  },
+  created() {
+    bus.$on("onMenu", this.onOffSideMenu);
   },
 };
 </script>

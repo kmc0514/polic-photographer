@@ -1,23 +1,20 @@
 <template>
   <div>
-    <tab-slot>
-      <li><router-link to="/trade/progress">촬영 종료</router-link></li>
-      <li>
-        <router-link to="/trade/finish">거래 완료</router-link>
-      </li>
-    </tab-slot>
+    <side-tab>
+      <li><router-link to="progress">촬영 종료</router-link></li>
+      <li><router-link to="finish">거래 완료</router-link></li>
+    </side-tab>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TabSlot from "@/components/TabSlot.vue";
+import SideTab from "@C/SideTab.vue";
 
 export default {
   components: {
-    TabSlot,
+    SideTab,
   },
-  mounted() {},
 };
 </script>
 

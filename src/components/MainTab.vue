@@ -2,10 +2,10 @@
   <div>
     <div class="tab tab_type04" id="myHeader" ref="myHeader">
       <ul>
-        <li><router-link to="/request">촬영요청</router-link></li>
-        <li><router-link to="/reserve">예약목록</router-link></li>
-        <li><router-link to="/product">촬영상품</router-link></li>
-        <li><router-link to="/portfolio">포트폴리오</router-link></li>
+        <li><router-link to="/main/request">촬영요청</router-link></li>
+        <li><router-link to="/main/reserve">예약목록</router-link></li>
+        <li><router-link to="/main/product">촬영상품</router-link></li>
+        <li><router-link to="/main/portfolio">포트폴리오</router-link></li>
       </ul>
     </div>
   </div>
