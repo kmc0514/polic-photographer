@@ -4,17 +4,9 @@
     <template v-if="this.$store.state.onSale">
       <div class="request_list">
         <!-- 결제 완료 리스트 -->
-        <request-item
-          v-for="item in paidList"
-          :paid="true"
-          :key="item"
-        ></request-item>
+        <req-item v-for="item in paidList" :paid="true" :key="item"></req-item>
         <!-- 촬영 요청 리스트 -->
-        <request-item
-          v-for="req in reqItem"
-          :key="req.id"
-          :req="req"
-        ></request-item>
+        <req-item v-for="req in reqItems" :key="req.id" :req="req"></req-item>
       </div>
     </template>
     <template v-else>
@@ -25,7 +17,7 @@
 
 <script>
 import TypeBar from "@/components/TypeBar.vue";
-import RequestItem from "@/components/RequestItem.vue";
+import ReqItem from "@C/request/ReqItem.vue";
 import Blank from "@/components/common/Blank.vue";
 import { mapGetters } from "vuex";
 
@@ -38,30 +30,14 @@ export default {
   },
   computed: {
     ...mapGetters({
-      reqItem: "reqListGetter",
+      reqItems: "reqListGetter",
     }),
   },
   components: {
     TypeBar,
-    RequestItem,
+    ReqItem,
     Blank,
   },
-  methods: {
-    organizeList() {
-      // ** 결제완료건 리퀘스트건 분리 **
-      // const raw = this.reqItem;
-      // for (let i = 0; i < raw.length; i++) {
-      //   if (raw[i].state === "pending") {
-      //     this.pendingList.push(raw[i]);
-      //     console.log("pending");
-      //   } else {
-      //     this.paidList.push(raw[i]);
-      //     console.log("paid");
-      //   }
-      // }
-    },
-  },
-  created() {},
 };
 </script>
 

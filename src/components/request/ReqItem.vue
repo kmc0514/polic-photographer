@@ -54,7 +54,8 @@
         </template>
       </div>
     </div>
-    <Modal
+    <!-- Local Modal -->
+    <msg-modal
       v-if="showModal"
       :modalType="modalTypeData"
       @close="showModal = false"
@@ -74,12 +75,12 @@
         </dl>
       </div>
       <a slot="button">확인</a>
-    </Modal>
+    </msg-modal>
   </div>
 </template>
 
 <script>
-import Modal from "@/components/common/Modal.vue";
+import MsgModal from "@C/common/MsgModal.vue";
 
 export default {
   data() {
@@ -97,7 +98,7 @@ export default {
     },
   },
   components: {
-    Modal,
+    MsgModal,
   },
 };
 </script>

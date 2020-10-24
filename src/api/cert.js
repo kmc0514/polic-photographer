@@ -1,6 +1,7 @@
 import axios from "axios";
 
-let API_BASE = "http://175.196.48.113:8300/api/v/1";
+// let API_BASE = "http://175.196.48.113:8300/api/v/1";
+let API_BASE = "http://220.79.240.155:8300/api/v/1";
 
 let headers = {
   token: "ef59a1297ddfd2f632a8b17d124fb366",

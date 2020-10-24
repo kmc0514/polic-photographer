@@ -1,13 +1,10 @@
 <template>
   <div>
     <progress-bar :curGauge="progress"></progress-bar>
-    <div id="wrap" class="wrap_type_normal footer_btn_ver">
-      <!-- 하단 버튼 추가시 footer_btn_ver 추가 -->
-      <div class="box mt10">
-        <div class="info_box">
-          <h2>어떤 촬영을 할 수 있나요?</h2>
-          <p>판매가능한 촬영종류를 모두 고르세요.</p>
-        </div>
+    <register-slot>
+      <template slot="title">어떤 촬영을 할 수 있나요?</template>
+      <template slot="subtitle">판매가능한 촬영종류를 모두 고르세요.</template>
+      <template slot="contents">
         <div class="select_list">
           <h3>일반</h3>
           <div class="select_item">
@@ -63,13 +60,14 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </template>
+    </register-slot>
   </div>
 </template>
 
 <script>
 import ProgressBar from "@C/common/ProgressBar.vue";
+import RegisterSlot from "./RegisterSlot";
 
 export default {
   data() {
@@ -79,6 +77,7 @@ export default {
   },
   components: {
     ProgressBar,
+    RegisterSlot,
   },
   created() {
     this.$emit("sentBtnData", "다음으로", "price");

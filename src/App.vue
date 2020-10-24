@@ -1,16 +1,16 @@
 <template>
   <body id="app">
-    <modal></modal>
+    <global-modal></global-modal>
     <router-view></router-view>
   </body>
 </template>
 
 <script>
-import Modal from "@C/common/Modal.vue";
+import GlobalModal from "@C/common/GlobalModal.vue";
 
 export default {
   components: {
-    Modal,
+    GlobalModal,
   },
 };
 </script>
