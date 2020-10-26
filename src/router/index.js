@@ -44,6 +44,10 @@ export const router = new VueRouter({
         },
       ],
     },
+    {
+      path: "/detail",
+      component: () => import("@C/TradeDetail.vue"),
+    },
 
     // 상품 미리보기 페이지
     {
@@ -139,7 +143,7 @@ export const router = new VueRouter({
             {
               name: "progress",
               path: "progress",
-              component: () => import("@C/reservation/RevList.vue"),
+              component: () => import("@C/admin/trade/ProgressList.vue"),
               meta: { title: "촬영 관리" },
             },
             {
@@ -153,7 +157,7 @@ export const router = new VueRouter({
         {
           name: "review",
           path: "review",
-          component: () => import("@C/admin/ReviewList.vue"),
+          component: () => import("@C/admin/review/ReviewList.vue"),
           meta: { title: "후기 관리" },
         },
         {

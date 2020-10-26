@@ -20,25 +20,25 @@
         </router-link>
       </div>
     </header>
-    <side-nav-modal
-      v-show="showSideMenu"
-      @close="showSideMenu = false"
-    ></side-nav-modal>
+    <side-menu v-show="showSideMenu" @close="showSideMenu = false"></side-menu>
   </div>
 </template>
 
 <script>
-import SideNavModal from "@C/SideNavModal.vue";
+import SideMenu from "@C/SideMenu.vue";
 
 export default {
   data() {
     return {
-      needTab: true,
+      needTab: false,
       showSideMenu: false,
     };
   },
   props: {
     isMain: Boolean,
+  },
+  components: {
+    SideMenu,
   },
   methods: {
     showMenu() {
@@ -52,10 +52,10 @@ export default {
       }
     },
   },
-  components: {
-    SideNavModal,
-  },
   updated() {
+    this.changeHeader();
+  },
+  created() {
     this.changeHeader();
   },
 };

@@ -1,28 +1,30 @@
 <template>
   <div id="wrap" class="wrap_type_tab">
-    <ul class="space_wrap">
-      <li v-for="(deal, index) in list" :key="index">
-        <h3>{{ deal.date }}</h3>
-        <div class="deal_list_type02">
-          <ul>
-            <rev-item
-              v-for="(item, index) in deal.item"
-              :key="index"
-              :id="deal.id"
-            ></rev-item>
-          </ul>
-        </div>
-      </li>
-    </ul>
+    <div class="space_wrap">
+      <h3>
+        전달하실 사진이
+        <span class="colPink">{{ list.length }}건</span> 남았어요.
+      </h3>
+      <div class="deal_list">
+        <ul>
+          <rev-item
+            v-for="(item, index) in list"
+            :key="index"
+            :id="item.id"
+          ></rev-item>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import RevItem from "./RevItem.vue";
+import RevItem from "@C/reservation/RevItem.vue";
 
 export default {
   data() {
     return {
+      // Fake Data
       list: [
         {
           date: "2020.06.30",

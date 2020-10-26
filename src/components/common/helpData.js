@@ -108,7 +108,7 @@ export const salePolicy = `
             </div>
             <div class="block_box">
                 <div class="help_title">
-                    <h3>﻿1. 단순 변심</h3>
+                    <h3>1. 단순 변심</h3>
                     <p>
                         ① 촬영 예정일로부터 7일 전까지 100% 환불<br />
                         ② 촬영 예정일로부터 3일 전까지 50% 환불<br />
@@ -124,7 +124,7 @@ export const salePolicy = `
                     </p>
                 </div>
                 <div class="help_title">
-                    <h3>﻿3. 세부 조율</h3>
+                    <h3>3. 세부 조율</h3>
                     <p>
                         ① 양자간 합의에 의한 내용은 100% 반영<br />
                         ② 시간 및 장소 변경에 대한 추가금 없음

@@ -4,7 +4,7 @@
     <register-slot>
       <template slot="title">어떤 촬영을 할 수 있나요?</template>
       <template slot="subtitle">판매가능한 촬영종류를 모두 고르세요.</template>
-      <template slot="contents">
+      <div slot="contents" class="box">
         <div class="select_list">
           <h3>일반</h3>
           <div class="select_item">
@@ -60,7 +60,7 @@
             </div>
           </div>
         </div>
-      </template>
+      </div>
     </register-slot>
   </div>
 </template>

@@ -1,7 +1,5 @@
 <template>
-  <div class="modal-mask">
-    <div class="modal-close" @click="$emit('close')"></div>
-
+  <div class="modal-mask" @click="$emit('close')">
     <div id="menu">
       <div class="menu_profile_box">
         <div class="img_box">작가프로필</div>
@@ -89,7 +87,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -97,58 +95,28 @@ export default {};
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   display: table;
   transition: opacity 0.3s ease;
 }
 
-.modal-close {
-  width: 32%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
-}
-
-.modal-default-button {
-  float: right;
-}
-
-/* TRANSITION */
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(-10px);
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+.modal-enter {
   opacity: 0;
+}
+.modal-leave-active {
+  opacity: 0;
+}
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <li>
-    <a href="#" title="자세히 보기">
+    <router-link
+      :to="{ path: '/detail', query: { trade_id: id } }"
+      href="#"
+      title="자세히 보기"
+    >
       <span class="people_info">
         <span
           class="profile_img"
@@ -18,12 +22,14 @@
           <i>18:00</i>
         </span>
       </span>
-    </a>
+    </router-link>
   </li>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["id"],
+};
 </script>
 
 <style></style>

@@ -17,6 +17,9 @@
     >
       <a href="#" title="링크 이동">저장 후 나가기</a>
     </div>
+    <div v-show="isDetail" class="right_text colPink" @click="$router.back()">
+      <a href="#" title="확인">확인</a>
+    </div>
   </header>
 </template>
 
@@ -25,20 +28,26 @@ export default {
   data() {
     return {
       isProductSet: Boolean,
+      isDetail: false,
       pageTitle: String,
     };
   },
   methods: {
-    productSetPage() {
+    setRightBtn() {
       if (this.$route.meta.type === "product") {
         this.isProductSet = true;
       } else {
         this.isProductSet = false;
       }
+      if (this.$route.path === "/detail") {
+        this.isDetail = true;
+      } else {
+        this.isDetail = false;
+      }
     },
   },
   created() {
-    this.productSetPage();
+    this.setRightBtn();
   },
 };
 </script>

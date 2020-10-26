@@ -102,7 +102,7 @@
         </div>
       </div>
 
-      <ul class="tabs">
+      <!-- <ul class="tabs">
         <li class="tab-link current" data-tab="tab-1">판매내역</li>
         <li class="tab-link" data-tab="tab-2">출금내역</li>
       </ul>
@@ -341,13 +341,17 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { whiteBg } from "@/mixins/whiteBg";
+
+export default {
+  mixins: [whiteBg],
+};
 </script>
 
 <style></style>

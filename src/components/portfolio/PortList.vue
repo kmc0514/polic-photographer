@@ -33,6 +33,8 @@ import { whiteBg } from "@/mixins/whiteBg.js";
 export default {
   data() {
     return {
+      activeTitle: "",
+      authorID: 2,
       imgArr: [
         "img01",
         "img02",
@@ -54,6 +56,42 @@ export default {
     };
   },
   methods: {
+    async loadAuthorDetail(authorID) {
+      this.loadingFlag = true;
+
+      let headers = {
+        //'token': 'ef59a1297ddfd2f632a8b17d124fb366',
+        tos: "author_profile",
+      };
+
+      let params = {
+        photographer_id: authorID,
+      };
+
+      await this.$store.dispatch("FETCH_REQUEST_AUTHOR_DETAIL", {
+        headers,
+        params,
+      });
+
+      console.log("loaded author profile: ", authorID);
+
+      let idx = this.getAuthorInfo.portfolioList.findIndex(
+        (element) => element.id === this.$route.query.photo_id
+      );
+
+      if (idx > -1) {
+        this.swiperOption.initialSlide = idx;
+      } else {
+        idx = 0;
+      }
+
+      this.activeTitle = this.getAuthorInfo.portfolioList[idx].title;
+      this.authorID = authorID;
+
+      this.loadingFlag = false;
+    },
+
+    // 임시방편 수정하세요.
     lookFull() {
       this.curScoll = window.scrollY;
       document.querySelector("body").style.overflow = "hidden";
@@ -67,6 +105,9 @@ export default {
   },
   components: {
     FullPhoto,
+  },
+  mounted() {
+    this.loadAuthorDetail(123456789);
   },
   mixins: [whiteBg],
 };

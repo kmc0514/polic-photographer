@@ -1,6 +1,6 @@
 export const priceList = [
   {
-    title: "일반",
+    type: "일반",
     list: [
       {
         numType: true,
@@ -23,7 +23,7 @@ export const priceList = [
     ],
   },
   {
-    title: "베이비/주니어",
+    type: "베이비/주니어",
     list: [
       {
         numType: true,
@@ -46,7 +46,7 @@ export const priceList = [
     ],
   },
   {
-    title: "행사",
+    type: "행사",
     list: [
       {
         numType: true,

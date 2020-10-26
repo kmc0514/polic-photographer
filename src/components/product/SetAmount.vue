@@ -2,18 +2,19 @@
   <div>
     <progress-bar :curGauge="progress"></progress-bar>
     <register-slot>
-      <template slot="title">촬영 요금을 설정하기</template>
+      <template slot="title">제공 수량 결정하기</template>
       <template slot="subtitle"
-        >촬영 테마별로 알맞은 요금을 책정하세요.</template
+        >원하는 형식에 따라 제공 하실 사진 수량을 입력하세요.</template
       >
-      <template slot="help"
-        ><p>
+      <template slot="help">
+        <p @click="showHelp">
           <a href="#" class="question_txt"
-            >폴릭 요금 체계 알아보기
-            <img src="@/assets/images/question_mark.png" alt="알아보기"
-          /></a></p
-      ></template>
-      <template slot="contents">
+            >폴릭 제공 체계 알아보기
+            <img src="@/assets/images/question_mark.png" alt="알아보기" />
+          </a>
+        </p>
+      </template>
+      <div slot="contents" class="box">
         <div class="select_list02 type02">
           <h3 class="left_title">제공 형식</h3>
           <div class="right_box">
@@ -62,10 +63,11 @@
         </template>
         <p class="small_txt02">
           기본 설정을 완료하면
-          <a href="#" class="under_line">폴릭 예약 취소 및 환불 규정</a>에
-          동의하는 것으로 간주합니다.
+          <span class="under_line" @click="showPolicy"
+            >폴릭 예약 취소 및 환불 규정</span
+          >에 동의하는 것으로 간주합니다.
         </p>
-      </template>
+      </div>
     </register-slot>
   </div>
 </template>
@@ -75,6 +77,7 @@ import ProgressBar from "@C/common/ProgressBar.vue";
 import RegisterSlot from "./RegisterSlot.vue";
 import SetBox from "./SetBox.vue";
 import { amountList } from "./registerData.js";
+import { bus } from "@/utils/bus.js";
 
 export default {
   data() {
@@ -103,6 +106,12 @@ export default {
         }
       });
       this.amountList = arr;
+    },
+    showHelp() {
+      bus.$emit("showModal", "amount");
+    },
+    showPolicy() {
+      bus.$emit("showModal", "policy");
     },
   },
   created() {

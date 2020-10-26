@@ -5,7 +5,7 @@
       >같은 사진의 원본과 보정본을 비교하여 작가님의 보정 스타일을 보여줄 수
       있어요.</template
     >
-    <template slot="contents">
+    <div slot="contents" class="box">
       <div class="photo_upload_box">
         <div class="photo_upload">
           <h3>원본</h3>
@@ -29,7 +29,7 @@
           <p class="small_alarm_txt">원본과 사진의 크기가 다릅니다.</p>
         </div>
       </div>
-    </template>
+    </div>
   </register-slot>
 </template>
 

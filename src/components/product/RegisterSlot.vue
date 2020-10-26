@@ -14,10 +14,10 @@
         </p>
         <slot name="help"></slot>
       </div>
-      <slot name="contents">
-        <!-- 콘텐츠를 입력하세요. -->
-      </slot>
     </div>
+    <slot name="contents">
+      <!-- 콘텐츠를 입력하세요. -->
+    </slot>
   </div>
 </template>
 
@@ -25,4 +25,4 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped></style>

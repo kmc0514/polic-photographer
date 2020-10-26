@@ -1,20 +1,32 @@
 <template>
   <transition name="modal">
-    <div v-if="close" class="modal-mask" @click="close = true">
+    <div v-if="open" class="modal-mask" @click="open = false">
       <div class="popup_wrap">
         <!-- Use Only ReqModal.vue -->
         <slot name="message"></slot>
+        <slot :data="type"></slot>
       </div>
     </div>
   </transition>
 </template>
 
 <script>
+import { bus } from "@/utils/bus";
+
 export default {
   data() {
     return {
-      close: false,
+      open: false,
+      type: "",
     };
+  },
+  props: ["sidemenu"],
+  mounted() {
+    bus.$on("showModal", (e) => {
+      this.open = true;
+      this.type = e;
+      console.log(e);
+    });
   },
 };
 </script>

@@ -4,7 +4,7 @@
     <template slot="subtitle"
       >예약 및 촬영 진행 시 유의사항을 안내하세요.</template
     >
-    <template slot="contents">
+    <div slot="contents" class="box">
       <textarea
         class="bottom_line"
         placeholder="내용을 입력하세요."
@@ -33,7 +33,7 @@
           </button>
         </li>
       </ul>
-    </template>
+    </div>
   </register-slot>
 </template>
 

@@ -1,14 +1,14 @@
 <template>
   <div class="footer_pop">
     <div class="footer_pop_header">
-      <a href="#" class="close"><img src="./images/cloes.png"/></a>
+      <a href="#" class="close"><img src="@/assets/images/cloes.png"/></a>
     </div>
     <div class="footer_pop_contents" v-html="helpContents"></div>
   </div>
 </template>
 
 <script>
-import { priceHelp } from "./helpData.js";
+import { priceHelp, amountHelp, salePolicy } from "@C/common/helpData.js";
 
 export default {
   data() {
@@ -16,8 +16,20 @@ export default {
       helpContents: "",
     };
   },
+  props: ["helpType"],
+  methods: {
+    getData(props) {
+      if (props === "price") {
+        this.helpContents = priceHelp;
+      } else if (props === "amount") {
+        this.helpContents = amountHelp;
+      } else if (props === "policy") {
+        this.helpContents = salePolicy;
+      }
+    },
+  },
   mounted() {
-    this.helpContents = priceHelp;
+    this.getData(this.helpType.data);
   },
 };
 </script>
