@@ -5,4 +5,10 @@ export default {
   reqListGetter(state) {
     return state.reqList;
   },
+  authorInfoGetter(state) {
+    return state.authorInfo;
+  },
+  photoListGetter(state) {
+    return state.photoList;
+  },
 };

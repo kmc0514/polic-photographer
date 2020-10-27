@@ -31,7 +31,7 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      typeStatus: Boolean,
+      typeStatus: this.onSaleGetter,
     };
   },
   watch: {

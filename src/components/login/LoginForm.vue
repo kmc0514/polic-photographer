@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import { whiteBg } from "../mixins/whiteBg.js";
+import { whiteBg } from "@/mixins/whiteBg.js";
+import { bus } from "@/utils/bus.js";
 
 export default {
   data() {
@@ -45,10 +46,42 @@ export default {
     };
   },
   methods: {
+    async loadAuthorDetail(authorID) {
+      let headers = {
+        tos: "author_profile",
+      };
+
+      let params = {
+        photographer_id: authorID,
+      };
+
+      await this.$store.dispatch("FETCH_AUTHOR_DETAIL", {
+        headers,
+        params,
+      });
+
+      console.log("loaded author profile:", authorID);
+    },
+    async LoadRequestList() {
+      let headers = {
+        tos: "customer_request_list",
+      };
+
+      let params = {};
+
+      await this.$store.dispatch("FETCH_REQUEST_LIST", { headers, params });
+      console.log("loaded request list: SUCCESS");
+    },
     loginCheck() {
+      bus.$emit("spinner-on");
       this.$store.state.logIn = true;
-      this.$store.dispatch("FETCH_REQUEST_LIST");
-      this.$router.push("main/request");
+      this.loadAuthorDetail(this.$store.state.id);
+      this.LoadRequestList();
+      setTimeout(() => {
+        console.log("login: SUCCESS");
+        this.$router.push("main/request");
+        bus.$emit("spinner-off");
+      }, 1000);
     },
   },
   mixins: [whiteBg],

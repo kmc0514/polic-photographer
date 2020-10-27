@@ -1,7 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import axios from "axios";
 
 Vue.use(VueRouter);
+
+const enhanceAccessToeken = () => {
+  const { accessToken } = localStorage;
+  if (!accessToken) {
+    axios.defaults.headers.common["token"] = "ef59a1297ddfd2f632a8b17d124fb366";
+  } else {
+    axios.defaults.headers.common["token"] = accessToken;
+  }
+};
+enhanceAccessToeken();
 
 // [URL 축약형]
 // @ : ~/src
@@ -44,6 +55,8 @@ export const router = new VueRouter({
         },
       ],
     },
+
+    // 거래정보 상세페이지
     {
       path: "/detail",
       component: () => import("@C/TradeDetail.vue"),
@@ -54,6 +67,13 @@ export const router = new VueRouter({
       name: "preview",
       path: "/preview",
       component: () => import("@C/product/PreviewPage.vue"),
+    },
+
+    // 사진 자세히 보기 페이지
+    {
+      name: "photo_view",
+      path: "/photoview",
+      component: () => import("@C/PhotoView.vue"),
     },
 
     // 등록 관련 페이지 (상품, 사진, 프로필)
