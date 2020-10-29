@@ -4,7 +4,7 @@
       안녕하세요 작가님,<br />
       촬영을 시작해볼까요?
     </h1>
-    <form @submit.prevent="loginCheck">
+    <form @submit.prevent="loginTry">
       <div class="login_input_wrap">
         <label for="e-mail">이메일</label>
         <input
@@ -72,7 +72,7 @@ export default {
       await this.$store.dispatch("FETCH_REQUEST_LIST", { headers, params });
       console.log("loaded request list: SUCCESS");
     },
-    loginCheck() {
+    loginTry() {
       bus.$emit("spinner-on");
       this.$store.state.logIn = true;
       this.loadAuthorDetail(this.$store.state.id);

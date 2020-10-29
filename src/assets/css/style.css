@@ -162,7 +162,13 @@ textarea {
   -webkit-appearance: none;
   margin: 0 0 10px 0;
   font-size: 14px;
+  resize: none;
 }
+
+textarea:focus {
+  outline: none;
+}
+
 textarea:disabled {
   color: #3b3b3b;
   opacity: 1;

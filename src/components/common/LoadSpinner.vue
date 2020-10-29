@@ -1,6 +1,11 @@
 <template>
   <div class="spinner_wrap">
-    <fade-loader v-if="loading" :color="red"></fade-loader>
+    <fade-loader
+      v-if="loading"
+      :width="style.width"
+      :height="style.height"
+      :color="style.color"
+    ></fade-loader>
   </div>
 </template>
 
@@ -8,6 +13,15 @@
 import FadeLoader from "vue-spinner/src/FadeLoader.vue";
 
 export default {
+  data() {
+    return {
+      style: {
+        width: "4px",
+        height: "12px",
+        color: "#ff635f",
+      },
+    };
+  },
   props: {
     loading: {
       type: Boolean,

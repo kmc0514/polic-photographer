@@ -68,7 +68,7 @@ export default {
       let idx = list.findIndex(
         (element) => element.id == this.$route.query.photo_id
       );
-
+      console.log("current Index: ", idx);
       if (idx > -1) {
         this.swiperOption.initialSlide = idx;
       } else {
@@ -79,6 +79,9 @@ export default {
     },
   },
   mounted() {
+    //this.setPhotoSwiper(this.photoListGetter);
+  },
+  created() {
     this.setPhotoSwiper(this.photoListGetter);
   },
 };

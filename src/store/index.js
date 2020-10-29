@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
     onSale: false, // 판매 상태 기억하도록 설정
     reqList: [],
     authorInfo: null,
+    productData: {},
     photoList: [],
   },
   getters,

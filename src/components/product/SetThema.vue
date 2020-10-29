@@ -55,7 +55,7 @@
               <label for="check09">무대&#47;콘서트</label>
             </div>
             <div class="round_check">
-              <input type="radio" id="check10" name="round_check03" />
+              <input type="checkbox" id="check10" name="round_check03" />
               <label for="check10">기업행사</label>
             </div>
           </div>
