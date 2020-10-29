@@ -151,12 +151,12 @@ input {
   margin: 0 0 10px 0;
   font-size: 14px;
 }
+
 textarea {
   box-shadow: none;
   color: #3b3b3b;
   border: 1px solid #ebebeb;
-  border-radius: 3px;
-  padding: 10px 13px;
+  padding: 12px 8px;
   width: 100%;
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -176,6 +176,9 @@ textarea:disabled {
 button {
   box-sizing: border-box;
   font-size: 14px;
+}
+button:focus {
+  outline: none;
 }
 
 .white_bg {
@@ -369,6 +372,7 @@ button {
   color: #fff;
   flex: 1;
   margin: 9px 0 0 0;
+  font-size: 14px;
 }
 .main_state .check-wrapper {
   margin: 9px 0 0 0;
@@ -512,7 +516,7 @@ button {
   border-bottom: none;
 }
 .main_box h3 {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0 0 15px 0;
 }
 .main_box h3 .percent_point {
@@ -522,12 +526,13 @@ button {
 }
 .main_box .slim_btn {
   color: #898989;
-  padding: 8px 0;
+  padding: 10px 0;
   margin: 15px 0 0 0;
   text-align: center;
   width: 100%;
   border: 1px solid #898989;
   border-radius: 2px;
+  font-size: 14px;
 }
 .main_box .slim_btn:active {
   background: #fafafa;
@@ -1468,6 +1473,11 @@ th {
   right: 5%;
   top: 19px;
 }
+
+#header .right_text a {
+  font-size: 14px;
+}
+
 #header .text_btn {
   color: #ff6f62;
   font-size: 1.08rem;
@@ -1731,7 +1741,7 @@ label.check-label span {
 label.check-label:before {
   content: "";
   position: absolute;
-  top: 2.5px;
+  top: 3px;
   left: 3px;
   width: 15px;
   height: 15px;
@@ -1749,17 +1759,17 @@ label.check-label:after {
   left: 0;
   top: 0;
   width: 38px;
-  height: 20px;
+  height: 21px;
   z-index: 1;
   background-color: #707070;
-  -webkit-border-radius: 26px;
-  border-radius: 26px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
   -webkit-transition: background-color 0.25s ease-out;
   transition: background-color 0.25s ease-out;
 }
 
 .check-wrapper input[type="checkbox"]:checked + .check-label:before {
-  left: 21px;
+  left: 20px;
 }
 
 .check-wrapper input[type="checkbox"]:checked + .check-label:after {
@@ -2634,16 +2644,17 @@ label.check-label:after {
 }
 
 .round_check.text05 input[type="radio"] {
-  width: 80px;
+  width: 96px;
+  height: 32px;
 }
 .round_check label {
   display: -webkit-box;
   color: #989898;
-  font-size: 12px;
+  font-size: 14px;
   position: absolute;
   left: 0;
   right: 0;
-  top: 5px;
+  top: 6px;
   text-align: center;
   height: auto;
   display: block;
@@ -4022,7 +4033,7 @@ span.review_btn {
 }
 .bottom_btn_wrap button {
   width: 100%;
-  height: 48px;
+  height: 56px;
   color: #fff;
   line-height: 38px;
   position: fixed;
@@ -4274,10 +4285,11 @@ span.review_btn {
   margin: 0 0 35px 0;
 }
 .info_box h2 {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0 0 5px 0;
 }
 .info_box p {
+  font-size: 16px;
 }
 .my_profile_box {
   position: relative;

@@ -30,7 +30,6 @@ export default {
   methods: {
     getTextLength() {
       this.text_length = this.$refs.textarea.value.length;
-      console.log(this.$refs.textarea.scrollHeight);
     },
     setAreaHeight() {
       const e = this.$refs.textarea;
@@ -44,10 +43,18 @@ export default {
 textarea {
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  height: 40px;
+  border-radius: none;
+  height: 50px;
+  font-size: 16px;
 }
 
 textarea:focus {
   border-bottom: 2px solid #ff635f;
+}
+
+.text_num {
+  text-align: left;
+  padding-left: 8px;
+  font-size: 14px;
 }
 </style>

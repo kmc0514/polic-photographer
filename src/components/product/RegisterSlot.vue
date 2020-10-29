@@ -1,6 +1,6 @@
 <template>
   <div id="wrap" class="wrap_type_normal footer_btn_ver">
-    <div class="box mt10">
+    <div class="box mt20">
       <div class="info_box">
         <h2>
           <slot name="title">

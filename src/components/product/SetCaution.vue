@@ -5,13 +5,10 @@
       >예약 및 촬영 진행 시 유의사항을 안내하세요.</template
     >
     <div slot="contents" class="box">
-      <textarea
-        class="bottom_line"
-        placeholder="내용을 입력하세요."
-        onkeydown="resize(this)"
-        onkeyup="resize(this)"
-      ></textarea>
-      <p class="text_num">0&#47;30</p>
+      <auto-textarea
+        :placeholder="`내용을 입력하세요.`"
+        :maxLength="`30`"
+      ></auto-textarea>
       <button type="button" class="button_style01 fr mt5 mb25">확인</button>
       <ul class="write_list">
         <li>
@@ -39,10 +36,12 @@
 
 <script>
 import RegisterSlot from "./RegisterSlot.vue";
+import AutoTextarea from "@C/common/AutoTextarea";
 
 export default {
   components: {
     RegisterSlot,
+    AutoTextarea,
   },
   created() {
     this.$emit("sentBtnData", "완료하기", "/main/product");
